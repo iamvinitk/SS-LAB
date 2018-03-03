@@ -8,7 +8,6 @@
 [0-9] {op++;}
 [+\-*/] {opr++;}
 
-
 %%
 void main()
 {
@@ -17,11 +16,11 @@ void main()
 	int d = op - opr;
 		printf("Values: %d %d\n",bracket, d);
 	if(bracket == 0 && d == 1){
-	printf("Expression is valid\n");
+	printf("Expression is Valid\n");
 	printf("Operators: %d\n",op);
 	printf("Operands: %d\n",opr);
 	}
 	else{
-		printf("Expression is isvalid");
+		printf("Expression is Invalid");
 	}
 }

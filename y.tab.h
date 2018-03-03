@@ -1,1 +1,2 @@
-#define NUM 257
+#define L 257
+#define D 258
