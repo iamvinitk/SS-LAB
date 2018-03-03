@@ -3,7 +3,7 @@
 extern int yylex();
 %}
 %token NUM
-%left '+''-'
+%lef                                                                                                                                                                                                              t '+''-'
 %left '*''/'
 %%
 expr : E {printf("Result:%d",$$);return 0;}
