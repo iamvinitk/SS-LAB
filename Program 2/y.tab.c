@@ -67,31 +67,31 @@ static const YYINT yylhs[] = {                           -1,
     0,    1,    1,
 };
 static const YYINT yylen[] = {                            2,
-    2,    1,    2,
+    2,    2,    1,
 };
 static const YYINT yydefred[] = {                         0,
-    2,    0,    0,    3,    1,
+    0,    3,    0,    0,    2,    1,
 };
-static const YYINT yydgoto[] = {                          2,
-    3,
+static const YYINT yydgoto[] = {                          3,
+    4,
 };
-static const YYINT yysindex[] = {                      -255,
-    0,    0, -257,    0,    0,
+static const YYINT yysindex[] = {                      -257,
+ -257,    0,    0,   -8,    0,    0,
 };
 static const YYINT yyrindex[] = {                         0,
-    0,    0,    0,    0,    0,
+    0,    0,    0,    0,    0,    0,
 };
 static const YYINT yygindex[] = {                         0,
-    0,
+    2,
 };
-#define YYTABLESIZE 2
-static const YYINT yytable[] = {                          4,
-    5,    1,
+#define YYTABLESIZE 3
+static const YYINT yytable[] = {                          1,
+    2,    6,    5,
 };
 static const YYINT yycheck[] = {                        257,
-  258,  257,
+  258,   10,    1,
 };
-#define YYFINAL 2
+#define YYFINAL 3
 #ifndef YYDEBUG
 #define YYDEBUG 0
 #endif
@@ -101,19 +101,20 @@ static const YYINT yycheck[] = {                        257,
 #if YYDEBUG
 static const char *const yyname[] = {
 
-"end-of-file",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+"end-of-file",0,0,0,0,0,0,0,0,0,"'\\n'",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"A","B",0,0,0,"illegal-symbol",
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"A","B",0,0,0,
+"illegal-symbol",
 };
 static const char *const yyrule[] = {
 "$accept : expr",
-"expr : x B",
-"x : A",
-"x : x A",
+"expr : S '\\n'",
+"S : A S",
+"S : B",
 
 };
 #endif
@@ -151,22 +152,22 @@ typedef struct {
 } YYSTACKDATA;
 /* variables for the parser stack */
 static YYSTACKDATA yystack;
-#line 13 "lab2.y"
-void main(){
-	printf("Enter the expression\n");
-	if(yyparse() == 0)
-			printf("Valid\n");
+#line 12 "lab2.y"
+void main()
+{
+	printf("Enter the string\n");
+	yyparse();
 }
 
 int yyerror(){
-printf("Error\n");
+printf("Invalid string\n");
 return 0;
 }
 
 
 
 
-#line 170 "y.tab.c"
+#line 171 "y.tab.c"
 
 #if YYDEBUG
 #include <stdio.h>		/* needed for printf */
@@ -368,6 +369,11 @@ yyreduce:
         memset(&yyval, 0, sizeof yyval);
     switch (yyn)
     {
+case 1:
+#line 8 "lab2.y"
+	{printf("Valid\n");}
+break;
+#line 377 "y.tab.c"
     }
     yystack.s_mark -= yym;
     yystate = *yystack.s_mark;

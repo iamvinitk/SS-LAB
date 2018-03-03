@@ -5,18 +5,18 @@ extern int yylex();
 %token A
 %token B
 %%
-expr : S
-S: S A     
- | B ;
+expr : S'\n' {printf("Valid\n");}
+S: A S
+ | B;
 %%
-void main(){
-	printf("Enter the expression\n");
-	if(yyparse() == 0)
-			printf("Valid\n");
+void main()
+{
+	printf("Enter the string\n");
+	yyparse();
 }
 
 int yyerror(){
-printf("Error\n");
+printf("Invalid string\n");
 return 0;
 }
 

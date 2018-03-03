@@ -375,8 +375,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 4
-#define YY_END_OF_BUFFER 5
+#define YY_NUM_RULES 5
+#define YY_END_OF_BUFFER 6
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -386,7 +386,7 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[9] =
     {   0,
-        0,    0,    5,    3,    4,    1,    2,    0
+        0,    0,    6,    4,    3,    1,    2,    0
     } ;
 
 static yyconst YY_CHAR yy_ec[256] =
@@ -461,11 +461,10 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "lab2.l"
-/* Develop implement and execute a program using YACC tool to recognise all strings ending with b preceded by n number of a's using the grammar a^nb */
-#line 3 "lab2.l"
+#line 2 "lab2.l"
 #include"y.tab.h"
 extern int yylval;
-#line 469 "lex.yy.c"
+#line 468 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -683,9 +682,9 @@ YY_DECL
 		}
 
 	{
-#line 6 "lab2.l"
+#line 5 "lab2.l"
 
-#line 689 "lex.yy.c"
+#line 688 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -744,25 +743,31 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "lab2.l"
+#line 6 "lab2.l"
 {return A;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 8 "lab2.l"
+#line 7 "lab2.l"
 {return B;}
 	YY_BREAK
 case 3:
+/* rule 3 can match eol */
 YY_RULE_SETUP
-#line 9 "lab2.l"
+#line 8 "lab2.l"
 {return yytext[0];}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
+#line 9 "lab2.l"
+{return yytext[0];}
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
 #line 10 "lab2.l"
 ECHO;
 	YY_BREAK
-#line 766 "lex.yy.c"
+#line 771 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
