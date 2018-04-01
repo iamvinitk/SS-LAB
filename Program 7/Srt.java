@@ -15,7 +15,7 @@ public class Srt {
 			int pid = s.nextInt();
 			int bt = s.nextInt();
 			b[i] = bt;
-			list.add(new Process(pid, bt));
+			list.add(new Process(pid, bt, i));
 		}
 		int i = 0, end;
 		float avg = 0, tt = 0;
