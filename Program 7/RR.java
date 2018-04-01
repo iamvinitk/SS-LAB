@@ -20,7 +20,6 @@ public class RR {
             list.add(new Process(at, bt, i + 1));
         }
         int time = 0;
-//        list2.add(list.get(0));
         float end = 0, avg = 0, tt = 0;
         while (time < sum) {
             boolean flag = false;
@@ -62,18 +61,45 @@ public class RR {
                     tt += end - list.get(index - 1).at;
                 }
             }
-                time += currtime;
+            time += currtime;
         }
-        System.out.println("TT Avg" + (tt/5));
-        System.out.println("WT Avg" + (avg/5));
-//        for (int i = 0; i < list.size(); i++) {
-//            System.out.println(list.get(i).at);
-//        }
-
+        System.out.println("TT Avg" + (tt / 5));
+        System.out.println("WT Avg" + (avg / 5));
         s.close();
 
     }
-
-//0 10 0 1 3 2 5 1 10 4
-
 }
+//0 10 0 1 3 2 5 1 10 4
+/* Output
+Enter the number of processes
+5
+0 10 0 1 3 2 5 1 10 4
+Process Added is 1 at 0
+Process Added is 2 at 0
+Time taken:0-2Process : 1
+Time taken:2-3Process : 2
+Process Added is 3 at 3
+Processed Ended 2
+End time is3.0for2
+Time taken:3-5Process : 1
+Process Added is 4 at 5
+Time taken:5-7Process : 3
+Processed Ended 3
+End time is7.0for3
+Time taken:7-8Process : 4
+Processed Ended 4
+End time is8.0for4
+Time taken:8-10Process : 1
+Process Added is 5 at 10
+Time taken:10-12Process : 5
+Time taken:12-14Process : 1
+Time taken:14-16Process : 5
+Processed Ended 5
+End time is16.0for5
+Time taken:16-18Process : 1
+Processed Ended 1
+End time is18.0for1
+TT Avg 6.8
+WT Avg 3.2
+
+*/
