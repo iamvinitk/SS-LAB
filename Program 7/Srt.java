@@ -15,7 +15,11 @@ public class Srt {
 			int pid = s.nextInt();
 			int bt = s.nextInt();
 			b[i] = bt;
+<<<<<<< HEAD
 			list.add(new Process(pid, bt));
+=======
+			list.add(new Process(pid, bt, i));
+>>>>>>> 0e10882083399ba50b47de935d311229eb545258
 		}
 		int i = 0, end;
 		float avg = 0, tt = 0;
@@ -55,4 +59,33 @@ public class Srt {
 
 }
 
+<<<<<<< HEAD
 //0 10 0 1 3 2 5 1 10 4
+=======
+//0 10 0 1 3 2 5 1 10 4
+/* Output
+Enter the number of processes
+5
+0 10 0 1 3 2 5 1 10 4
+Process Executed is 2
+Process Executed is 1
+Process Executed is 1
+Process Executed is 3
+Process Executed is 3
+Process Executed is 4
+Process Executed is 1
+Process Executed is 1
+Process Executed is 1
+Process Executed is 1
+Process Executed is 1
+Process Executed is 1
+Process Executed is 1
+Process Executed is 1
+Process Executed is 5
+Process Executed is 5
+Process Executed is 5
+Process Executed is 5
+Average time: 1.6
+TT is: 5.2
+ */
+>>>>>>> 0e10882083399ba50b47de935d311229eb545258
