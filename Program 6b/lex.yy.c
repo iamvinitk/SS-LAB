@@ -486,9 +486,9 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lab6b.l"
-#line 2 "lab6b.l"
-#include"y.tab.h"
+#line 1 "program.l"
+#line 2 "program.l"
+#include "y.tab.h"
 extern int yylval;
 #line 494 "lex.yy.c"
 
@@ -708,7 +708,7 @@ YY_DECL
 		}
 
 	{
-#line 5 "lab6b.l"
+#line 5 "program.l"
 
 #line 714 "lex.yy.c"
 
@@ -769,38 +769,38 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 6 "lab6b.l"
+#line 6 "program.l"
 {;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 7 "lab6b.l"
+#line 7 "program.l"
 {printf("%s is an operator \n", yytext); return OP;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 8 "lab6b.l"
+#line 8 "program.l"
 {printf("%s is a keyword \n", yytext); return KW;}
 	YY_BREAK
 case 4:
 /* rule 4 can match eol */
 YY_RULE_SETUP
-#line 9 "lab6b.l"
+#line 9 "program.l"
 {;} //To ignore strings
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 10 "lab6b.l"
+#line 10 "program.l"
 {printf("%s is an identifier \n", yytext); return ID;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 11 "lab6b.l"
+#line 11 "program.l"
 {;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 12 "lab6b.l"
+#line 12 "program.l"
 ECHO;
 	YY_BREAK
 #line 807 "lex.yy.c"
@@ -1804,7 +1804,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 12 "lab6b.l"
+#line 12 "program.l"
 
 
 

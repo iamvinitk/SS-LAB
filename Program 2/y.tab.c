@@ -17,7 +17,7 @@
 
 #define YYPURE 0
 
-#line 2 "lab2.y"
+#line 2 "program.y"
 #include<stdio.h>
 extern int yylex();
 #line 24 "y.tab.c"
@@ -152,7 +152,7 @@ typedef struct {
 } YYSTACKDATA;
 /* variables for the parser stack */
 static YYSTACKDATA yystack;
-#line 12 "lab2.y"
+#line 12 "program.y"
 void main()
 {
 	printf("Enter the string\n");
@@ -370,7 +370,7 @@ yyreduce:
     switch (yyn)
     {
 case 1:
-#line 8 "lab2.y"
+#line 8 "program.y"
 	{printf("Valid\n");}
 break;
 #line 377 "y.tab.c"

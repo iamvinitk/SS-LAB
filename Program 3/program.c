@@ -9,21 +9,21 @@ char input[10];
 int top=-1;
 char stack[25];
 char curp[20];
-push(char item)
+void push(char item)
 {
         stack[++top]=item;
 }
-pop()
+void pop()
 {
         top=top-1;
 }
-display()
+void display()
 {
         int i;
         for(i=top;i>=0;i--)
         printf("%c",stack[i]);
 }
-numr(char c)
+int numr(char c)
 {
         switch(c)
         {

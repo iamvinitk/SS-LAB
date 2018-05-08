@@ -17,7 +17,7 @@
 
 #define YYPURE 0
 
-#line 2 "lab6b.y"
+#line 2 "program.y"
 #include<stdio.h>
 extern int yylex();
 extern FILE *yyin;
@@ -156,7 +156,7 @@ typedef struct {
 } YYSTACKDATA;
 /* variables for the parser stack */
 static YYSTACKDATA yystack;
-#line 18 "lab6b.y"
+#line 18 "program.y"
 void main()
 {
 	yyin = fopen("fin.txt", "r");
@@ -376,27 +376,27 @@ yyreduce:
     switch (yyn)
     {
 case 1:
-#line 11 "lab6b.y"
+#line 11 "program.y"
 	{op++;}
 break;
 case 2:
-#line 12 "lab6b.y"
+#line 12 "program.y"
 	{key++;}
 break;
 case 3:
-#line 13 "lab6b.y"
+#line 13 "program.y"
 	{id++;}
 break;
 case 4:
-#line 14 "lab6b.y"
+#line 14 "program.y"
 	{op++;}
 break;
 case 5:
-#line 15 "lab6b.y"
+#line 15 "program.y"
 	{key++;}
 break;
 case 6:
-#line 16 "lab6b.y"
+#line 16 "program.y"
 	{id++;}
 break;
 #line 403 "y.tab.c"

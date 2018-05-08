@@ -17,7 +17,7 @@
 
 #define YYPURE 0
 
-#line 2 "p1b.y"
+#line 2 "program.y"
 #include<stdio.h>
 extern int yylex();
 #line 24 "y.tab.c"
@@ -201,7 +201,7 @@ typedef struct {
 } YYSTACKDATA;
 /* variables for the parser stack */
 static YYSTACKDATA yystack;
-#line 18 "p1b.y"
+#line 18 "program.y"
 void main(){
 	printf("Enter the expression\n");
 	yyparse();
@@ -418,31 +418,31 @@ yyreduce:
     switch (yyn)
     {
 case 1:
-#line 9 "p1b.y"
+#line 9 "program.y"
 	{printf("Result:%d",yyval);return 0;}
 break;
 case 2:
-#line 10 "p1b.y"
+#line 10 "program.y"
 	{yyval=yystack.l_mark[-2]+yystack.l_mark[0];}
 break;
 case 3:
-#line 11 "p1b.y"
+#line 11 "program.y"
 	{yyval=yystack.l_mark[-2]-yystack.l_mark[0];}
 break;
 case 4:
-#line 12 "p1b.y"
+#line 12 "program.y"
 	{yyval=yystack.l_mark[-2]*yystack.l_mark[0];}
 break;
 case 5:
-#line 13 "p1b.y"
+#line 13 "program.y"
 	{yyval=yystack.l_mark[-2]/yystack.l_mark[0];}
 break;
 case 6:
-#line 14 "p1b.y"
+#line 14 "program.y"
 	{yyval=yystack.l_mark[-1];}
 break;
 case 7:
-#line 15 "p1b.y"
+#line 15 "program.y"
 	{yyval=yystack.l_mark[0];}
 break;
 #line 449 "y.tab.c"
