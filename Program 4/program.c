@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-char ip_sym[15],stack[15];
+char ip_sym[30],stack[30];
 int ip_ptr=0,st_ptr=0,len,i;
-char temp[2];
-char act[15];
+char temp[3];
+char act[30];
 void check();
 
 void main()
@@ -17,8 +17,8 @@ void main()
   scanf("%s",ip_sym);
   printf("\n\t Stack implementation table\n");
   printf("\n Stack\t\t\tInput symbol\t\t\t Action");
-  printf("\n______\t\t\t ____________\t\t \t______\n");
-  printf("\n $\t\t\t%s$\t\t\t--",ip_sym); /*first step empty action */
+  printf("\n______\t\t\t ____________\t\t\t______\n");
+  printf("\n $\t\t\t%s$\t\t\t--",ip_sym);
   strcpy(act,"Shift ");
   if (ip_sym[ip_ptr]=='(')
   {
@@ -56,7 +56,7 @@ void main()
       ip_ptr++;
     }
 
-    printf("\n $%s\t\t\t%s$\t\t\t%s",stack,ip_sym,act); /* second print with action shift*/
+    printf("\n $%s\t\t\t%s$\t\t\t%s",stack,ip_sym,act);
     strcpy(act,"shift ");
     if (ip_sym[ip_ptr]=='(' || ip_sym[ip_ptr]=='*' || ip_sym[ip_ptr]=='+' || ip_sym[ip_ptr]==')')
     {
@@ -89,7 +89,7 @@ void check()
       stack[st_ptr-1]='F';
       stack[st_ptr]='\0';
       st_ptr--;
-      flag=1;
+      flag=1;E
       printf("\n $%s\t\t\t%s$\t\t\tF->id",stack, ip_sym);
     }
 
@@ -99,38 +99,34 @@ void check()
       stack[st_ptr-1]='\0';
       flag=1;
       st_ptr=st_ptr-2;
-      printf("\n $%s\t\t\t%s$\t\t\tF->id",stack, ip_sym);
+      printf("\n $%s\t\t\t%s$\t\t\tF->(E)",stack, ip_sym);
     }
 
     if (stack[st_ptr]=='F' && stack[st_ptr-1]=='*' && stack[st_ptr-2]=='T')
     {
-      // stack[st_ptr-2]='T';
       stack[st_ptr-1]='\0';
       st_ptr= st_ptr-2;
       flag=1;
       printf("\n $%s\t\t\t%s$\t\t\tT->T*F",stack, ip_sym);
     }
 
-    else
+    if (stack[st_ptr]=='F')
     {
-      if (stack[st_ptr]=='F')
-      {
-        stack[st_ptr]='T';
-        flag=1;
-        printf("\n $%s\t\t\t%s$\t\t\tT->F",stack, ip_sym);
-      }
+      stack[st_ptr]='T';
+      flag=1;
+      printf("\n $%s\t\t\t%s$\t\t\tT->F",stack, ip_sym);
     }
 
-    if( stack[st_ptr]=='T' && stack[st_ptr-1]=='+' && stack[st_ptr-2]=='E' && ip_sym[ip_ptr]!='*' )
+
+    if (stack[st_ptr]=='T' && stack[st_ptr-1]=='+' && stack[st_ptr-2]=='E' && ip_sym[ip_ptr]!='*')
     {
-      //stack[st_ptr-2]='E';
       stack[st_ptr-1]='\0';
       st_ptr= st_ptr-2;
       flag=1;
       printf("\n $%s\t\t\t%s$\t\t\tE->E+T",stack, ip_sym);
     }
 
-    else if ((stack[st_ptr]=='T' && ip_sym[ip_ptr]== '+') || (stack[0]=='T' && ip_sym[ip_ptr]== '\0') ||
+    if ((stack[st_ptr]=='T' && ip_sym[ip_ptr]== '+') || (stack[0]=='T' && ip_sym[ip_ptr]== '\0') ||
     (stack[st_ptr]=='T' && ip_sym[ip_ptr]== ')'))
     {
       stack[st_ptr]='E';
@@ -138,31 +134,35 @@ void check()
       printf("\n $%s\t\t\t%s$\t\t\tE->T",stack, ip_sym);
     }
 
-    if((stack[st_ptr]=='T' && ip_sym[ip_ptr]== '*') ||(stack[st_ptr]=='E' && ip_sym[ip_ptr]==')')||
-    (stack[st_ptr]=='E' && ip_sym[ip_ptr]=='+')||(stack[st_ptr]=='+'&& ip_sym[ip_ptr]=='i' && ip_sym[ip_ptr+1]=='d')||
-    (stack[st_ptr]== '(' && ip_sym[ip_ptr]=='i' && ip_sym[ip_ptr+1]=='d') ||(stack[st_ptr]== '(' && ip_sym[ip_ptr]=='(')||
-    (stack[st_ptr]=='*'&& ip_sym[ip_ptr]=='i' && ip_sym[ip_ptr+1]=='d' ) ||
-    (stack[st_ptr]=='*'&& ip_sym[ip_ptr]=='(') ||
-    (stack[st_ptr]=='+'&& ip_sym[ip_ptr]=='('))
-    {
-      flag=2;
+    if(
+      (stack[st_ptr]=='E' && ip_sym[ip_ptr]=='+')  ||
+      (stack[st_ptr]=='T' && ip_sym[ip_ptr]=='*')  ||
+      (stack[st_ptr]=='E' && ip_sym[ip_ptr]==')')  ||
+      (stack[st_ptr]=='(' && ip_sym[ip_ptr]=='(')  ||
+      (stack[st_ptr]=='*' && ip_sym[ip_ptr]=='(')  ||
+      (stack[st_ptr]=='+' && ip_sym[ip_ptr]=='(')  ||
+      (stack[st_ptr]=='+' && ip_sym[ip_ptr]=='i' && ip_sym[ip_ptr+1]=='d')   ||
+      (stack[st_ptr]=='*' && ip_sym[ip_ptr]=='i' && ip_sym[ip_ptr+1]=='d')   ||
+      (stack[st_ptr]=='(' && ip_sym[ip_ptr]=='i' && ip_sym[ip_ptr+1]=='d'))
+      {
+        flag=2;
+      }
+
+      if(!strcmp(stack,"E") && ip_sym[ip_ptr]=='\0')
+      {
+        printf("\n $%s\t\t\t%s$\t\t\tAccept\n",stack,ip_sym);
+        exit(0);
+      }
+
+      if(flag==0)
+      {
+        printf("\n%s\t\t\t%s\t\t\tReject\n",stack,ip_sym);
+        exit(0);
+      }
+
+      if (flag==2){
+        return;
+      }
+      flag=0;
     }
-
-    if(!strcmp(stack,"E")&& ip_sym[ip_ptr]=='\0')
-    {
-      printf("\n $%s\t\t\t%s$\t\t\tACCEPT\n",stack,ip_sym);
-
-      exit(0);
-    }
-
-    if(flag==0)
-    {
-      printf("\n%s\t\t\t%s\t\t\treject\n",stack,ip_sym);
-      exit(0);
-    }
-
-    if (flag==2)
-    return;
-    flag=0;
   }
-}
